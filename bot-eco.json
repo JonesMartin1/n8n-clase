@@ -1,0 +1,165 @@
+{
+  "name": "Bot de WhatsApp - eco",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp",
+        "options": {}
+      },
+      "id": "b1a1c001-0000-4000-8000-000000000001",
+      "name": "Llega un WhatsApp",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "b1a1c001-0000-4000-8000-0000000000aa"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0000001-0000-4000-8000-000000000001",
+              "name": "evo_url",
+              "value": "PEGAR_ACA",
+              "type": "string"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000002",
+              "name": "evo_apikey",
+              "value": "PEGAR_ACA",
+              "type": "string"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000003",
+              "name": "instancia",
+              "value": "={{ $json.body.instance }}",
+              "type": "string"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000004",
+              "name": "numero",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000005",
+              "name": "texto",
+              "value": "={{ $json.body.data.message?.conversation || $json.body.data.message?.extendedTextMessage?.text || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000006",
+              "name": "es_mio",
+              "value": "={{ $json.body.data.key.fromMe }}",
+              "type": "boolean"
+            },
+            {
+              "id": "d0000001-0000-4000-8000-000000000007",
+              "name": "nombre",
+              "value": "={{ $json.body.data.pushName }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1a1c001-0000-4000-8000-000000000002",
+      "name": "Datos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c0000001-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.es_mio }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c0000001-0000-4000-8000-000000000002",
+              "leftValue": "={{ $json.texto }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c0000001-0000-4000-8000-000000000003",
+              "leftValue": "={{ $json.numero }}",
+              "rightValue": "@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "notEndsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b1a1c001-0000-4000-8000-000000000003",
+      "name": "¿Es un mensaje para contestar?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Datos').item.json.evo_url }}/message/sendText/{{ $('Datos').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Datos').item.json.evo_apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ number: $('Datos').item.json.numero, text: '🤖 Recibí tu mensaje: ' + $('Datos').item.json.texto }) }}",
+        "options": {}
+      },
+      "id": "b1a1c001-0000-4000-8000-000000000004",
+      "name": "Contestar por WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, -100]
+    }
+  ],
+  "connections": {
+    "Llega un WhatsApp": {
+      "main": [[{ "node": "Datos", "type": "main", "index": 0 }]]
+    },
+    "Datos": {
+      "main": [[{ "node": "¿Es un mensaje para contestar?", "type": "main", "index": 0 }]]
+    },
+    "¿Es un mensaje para contestar?": {
+      "main": [
+        [{ "node": "Contestar por WhatsApp", "type": "main", "index": 0 }],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
