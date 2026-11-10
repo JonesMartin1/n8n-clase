@@ -17,6 +17,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [guia-alumno.md](guia-alumno.md) | Alumnos | Paso a paso para seguir en clase, con casilleros para tildar |
 | [bot-eco.json](bot-eco.json) | Alumnos | Workflow de n8n listo para importar (el bot que contesta) |
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
+| [guia-agente-de-codigo.md](guia-agente-de-codigo.md) | Alumnos | Cómo usar gratis un agente de IA (Codex, Copilot Student, Antigravity) para armar y arreglar flujos, sin pasarle claves |
 | [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, guía del coloquio, planilla de notas y revisor de claves |
 
 | [videos/](#videos) | Los dos | Cuatro videos cortos (30 a 36 s) para pasar en el proyector |
@@ -33,6 +34,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 1. Arrancar con el video 1, *Qué vamos a armar*: en 30 segundos muestran el recorrido completo, del WhatsApp a Odoo.
 2. Antes de crear el servidor, pasar el video 2, *Qué es un servidor*.
 3. Los alumnos siguen [guia-alumno.md](guia-alumno.md) tildando casilleros e importan [bot-eco.json](bot-eco.json) en n8n.
+   Si se traban, [guia-agente-de-codigo.md](guia-agente-de-codigo.md) explica cómo pedirle ayuda a un agente de IA gratis.
 4. Antes de que exporten flujos o saquen capturas, pasar el video 3, *La clave no se comparte*.
 
 **Para el integrador (AE4)**
