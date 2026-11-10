@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 ~$*
 .~lock.*
+
+# Material solo del docente (preguntas del Coloquio)
+ae4/guia-coloquio.md

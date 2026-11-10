@@ -7,7 +7,7 @@ Lo que se necesita para tomar y corregir la AE4, que se arma sobre los talleres 
 | `AE4 - Consigna v03 - ….docx` | Alumnos y docente | La consigna corregida (reemplaza a la v02) |
 | `AE4 - Rubrica de evaluacion v03 - ….docx` | Alumnos y docente | La rúbrica alineada con la consigna |
 | [checklist-entrega.md](checklist-entrega.md) | Parejas | Lo que tiene que estar antes del jueves 19/11, componente por componente |
-| [guia-coloquio.md](guia-coloquio.md) | Docente | Calendario, cómo verificar antes de puntuar, el Coloquio minuto a minuto, preguntas y criterios V/NV |
+| `guia-coloquio.md` (solo en la compu del docente, no se publica) | Docente | Calendario, cómo verificar antes de puntuar, el Coloquio minuto a minuto, preguntas y criterios V/NV |
 | `planilla-calificacion.xlsx` | Docente | Una fila por pareja: aplica sola la regla del Bloque A, el tope de 100, el descuento, la nota y el estado de cada integrante |
 | [tools/revisar_claves.py](tools/revisar_claves.py) | Docente | Busca claves expuestas en los flujos exportados y en los textos de una pareja |
 | [tools/armar_planilla.py](tools/armar_planilla.py) | Docente | Vuelve a generar la planilla si cambian las reglas |

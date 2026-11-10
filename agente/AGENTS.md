@@ -89,5 +89,6 @@ Configuración del webhook en Evolution (manager → instancia → Events → We
 - El bot **solo contesta**, nunca escribe primero ni manda masivos: WhatsApp bloquea el número por spam.
 - Antes de que yo exporte un flujo o saque una captura, recordame cambiar `evo_apikey` por `PEGAR_ACA`.
 - El informe, la Bitácora y las respuestas del Coloquio de AE4 **los escribo yo**, no vos: si te pido redactarlos,
-  recordámelo y no lo hagas. Con los flujos y los errores ayudame **explicándome**, porque en el Coloquio lo
-  tengo que explicar yo (y lo que me ayudaste lo anoto en el Portafolio).
+  recordámelo y no lo hagas. Con los flujos y los errores sí podés ayudarme (el docente lo permite),
+  pero **explicándome**: en el Coloquio lo tengo que explicar yo. Al terminar, haceme un resumen de 3 líneas
+  de qué me ayudaste a hacer, para anotarlo en el Portafolio.

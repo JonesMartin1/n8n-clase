@@ -117,8 +117,9 @@ Tampoco le pases **datos reales** de clientes, proveedores ni empleados. Usá si
   (punto 27 de la Guía Docente II Parte). Esto incluye pedirle al agente que "mejore" o "corrija" tu texto.
 - ✅ **Sí está permitido:** un bot con IA **como parte de la solución** (por ejemplo, que un nodo de IA entienda
   el mensaje del cliente).
-- ❓ **Usar el agente para construir o arreglar tus flujos:** consultalo con el docente antes de entregar.
-  Si lo usás, **anotalo en el Portafolio**: qué le pediste y qué cambiaste vos. Es parte del registro de decisiones.
+- ✅ **También está permitido usar el agente para construir o arreglar tus flujos**, con una condición:
+  **anotalo en el Portafolio** (qué le pediste, qué te dio y qué cambiaste vos). Es parte del registro de
+  decisiones. Y en el Coloquio lo tenés que poder explicar vos.
 
 ---
 

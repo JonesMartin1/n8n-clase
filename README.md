@@ -19,7 +19,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
 | [guia-agente-de-codigo.md](guia-agente-de-codigo.md) | Alumnos | Cómo usar gratis un agente de IA (Codex, Copilot Student, Antigravity) para armar y arreglar flujos, sin pasarle claves |
 | [agente/AGENTS.md](agente/AGENTS.md) | Alumnos (para su agente) | Contexto para pegarle al agente de IA: versiones (n8n 1.104.0, Evolution v2.3.7), cómo está armado el bot y los errores ya resueltos |
-| [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, guía del coloquio, planilla de notas y revisor de claves |
+| [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, planilla de notas y revisor de claves |
 
 | [videos/](#videos) | Los dos | Cinco videos cortos (30 a 36 s) para pasar en el proyector |
 
@@ -41,7 +41,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 **Para el integrador (AE4)**
 1. Pasar el video 4, *Cómo se aprueba AE4*, y compartir con las parejas el
    [checklist de entrega](ae4/checklist-entrega.md) junto con la consigna y la rúbrica v03 que están en [ae4/](ae4/README.md).
-2. Al corregir: [ae4/guia-coloquio.md](ae4/guia-coloquio.md) para el coloquio, `ae4/planilla-calificacion.xlsx`
+2. Al corregir: `ae4/guia-coloquio.md` para el coloquio (no está en el repo público: queda solo en tu compu), `ae4/planilla-calificacion.xlsx`
    para las notas y `python -I ae4/tools/revisar_claves.py <carpeta de la entrega>` para encontrar claves expuestas.
 
 ## Videos
