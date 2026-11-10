@@ -19,6 +19,52 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
 | [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, guía del coloquio, planilla de notas y revisor de claves |
 
+| [videos/](#videos) | Los dos | Cuatro videos cortos (unos 30 s) para pasar en el proyector |
+
+## Cómo usar todo esto
+
+**El profe, antes de la clase**
+1. Leer [guia-docente.md](guia-docente.md): dice qué preparar con días de anticipación (cuenta de AWS, base modelo de
+   Odoo, probar la API) y el plan B si algo falla.
+2. Bajar los videos de proyector a la compu del aula (ver [Videos](#videos)): así no dependés del wifi.
+3. Tener a mano [problemas-frecuentes.md](problemas-frecuentes.md).
+
+**En la clase**
+1. Arrancar con el video 1, *Qué vamos a armar*: en 30 segundos muestran el recorrido completo, del WhatsApp a Odoo.
+2. Antes de crear el servidor, pasar el video 2, *Qué es un servidor*.
+3. Los alumnos siguen [guia-alumno.md](guia-alumno.md) tildando casilleros e importan [bot-eco.json](bot-eco.json) en n8n.
+4. Antes de que exporten flujos o saquen capturas, pasar el video 3, *La clave no se comparte*.
+
+**Para el integrador (AE4)**
+1. Pasar el video 4, *Cómo se aprueba AE4*, y compartir con las parejas el
+   [checklist de entrega](ae4/checklist-entrega.md) junto con la consigna y la rúbrica v03 que están en [ae4/](ae4/README.md).
+2. Al corregir: [ae4/guia-coloquio.md](ae4/guia-coloquio.md) para el coloquio, `ae4/planilla-calificacion.xlsx`
+   para las notas y `python -I ae4/tools/revisar_claves.py <carpeta de la entrega>` para encontrar claves expuestas.
+
+## Videos
+
+Cada video dura unos 30 segundos, sin voz y con música y sonidos. Tiene un rótulo grande en cada escena y termina
+con un resumen que conviene **pausar** para explicarlo. Están hechos para el proyector (1920×1080).
+
+| # | Video | Cuándo pasarlo | Archivo para el proyector |
+|---|---|---|---|
+| 1 | Qué vamos a armar | Al empezar la clase | [que-vamos-a-armar-proyector.mp4](videos/que-vamos-a-armar/exports/que-vamos-a-armar-proyector.mp4) |
+| 2 | Qué es un servidor | Antes de crear el servidor en AWS | _en preparación_ |
+| 3 | La clave no se comparte | Antes de exportar flujos o sacar capturas | _en preparación_ |
+| 4 | Cómo se aprueba AE4 | Al presentar el integrador | _en preparación_ |
+
+**Para bajarlos:** entrá al enlace y tocá el botón de descarga (la flechita, *Download raw file*). Se abren con
+cualquier reproductor de video.
+
+**Otra forma, sin reproductor:** cada video también viene como página web en `videos/<video>/dist/<video>.html`.
+Se baja igual y se abre con doble clic en el navegador. Funciona sin internet.
+
+**Para preparar la clase:** en `videos/<video>/exports/<video>-shots.md` está la lista de escenas, con el segundo en
+que aparece cada una y su rótulo.
+
+**Para cambiar un video** (un texto, un color): el código está en `videos/<video>/src/`. Se edita con la skill
+`procedural-film` de Claude Code y se vuelve a generar con `node tools/render.cjs`.
+
 ## La idea en un dibujo
 
 ```
