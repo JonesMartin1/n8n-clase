@@ -19,7 +19,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
 | [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, guía del coloquio, planilla de notas y revisor de claves |
 
-| [videos/](#videos) | Los dos | Cuatro videos cortos (unos 30 s) para pasar en el proyector |
+| [videos/](#videos) | Los dos | Cuatro videos cortos (30 a 36 s) para pasar en el proyector |
 
 ## Cómo usar todo esto
 
@@ -43,7 +43,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 
 ## Videos
 
-Cada video dura unos 30 segundos, sin voz y con música y sonidos. Tiene un rótulo grande en cada escena y termina
+Cada video dura entre 30 y 36 segundos, sin voz y con música y sonidos. Tiene un rótulo grande en cada escena y termina
 con un resumen que conviene **pausar** para explicarlo. Están hechos para el proyector (1920×1080).
 
 | # | Video | Cuándo pasarlo | Archivo para el proyector |
@@ -51,7 +51,7 @@ con un resumen que conviene **pausar** para explicarlo. Están hechos para el pr
 | 1 | Qué vamos a armar | Al empezar la clase | [que-vamos-a-armar-proyector.mp4](videos/que-vamos-a-armar/exports/que-vamos-a-armar-proyector.mp4) |
 | 2 | Qué es un servidor | Antes de crear el servidor en AWS | [que-es-un-servidor-proyector.mp4](videos/que-es-un-servidor/exports/que-es-un-servidor-proyector.mp4) |
 | 3 | La clave no se comparte | Antes de exportar flujos o sacar capturas | [la-clave-no-se-comparte-proyector.mp4](videos/la-clave-no-se-comparte/exports/la-clave-no-se-comparte-proyector.mp4) |
-| 4 | Cómo se aprueba AE4 | Al presentar el integrador | _en preparación_ |
+| 4 | Cómo se aprueba AE4 | Al presentar el integrador | [como-se-aprueba-ae4-proyector.mp4](videos/como-se-aprueba-ae4/exports/como-se-aprueba-ae4-proyector.mp4) |
 
 **Para bajarlos:** entrá al enlace y tocá el botón de descarga (la flechita, *Download raw file*). Se abren con
 cualquier reproductor de video.
