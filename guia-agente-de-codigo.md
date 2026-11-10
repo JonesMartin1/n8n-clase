@@ -48,7 +48,34 @@ probar. Si sigue igual, escribile al soporte de GitHub.
 
 ---
 
-## 3. Para qué te sirve en este taller
+## 3. Antes de pedirle nada: dale el contexto de tu instalación
+
+Un agente que no sabe **qué versión** usás inventa botones y nodos que en tu pantalla no existen. Por eso armamos
+un archivo con todo lo que tiene que saber:
+
+👉 **[agente/AGENTS.md](agente/AGENTS.md)**
+
+Ahí está:
+- **Tus versiones:** n8n **1.104.0** y Evolution API **v2.3.7**, que son las que instala la plantilla de Dokploy,
+  con Odoo Online educativo.
+- **Cómo está armado tu bot:** el nodo Datos, las direcciones y el webhook.
+- **Los errores que ya resolvimos en clase:** el 401, el 404, el `@lid`, el bot que se contesta solo y otros.
+- **Las reglas:** nada de claves y nada de redactar el informe.
+
+**Cómo usarlo:**
+
+| Agente | Qué hacés |
+|---|---|
+| ChatGPT / Codex web | Abrí el archivo en GitHub, copiá todo y pegalo como **primer mensaje** de la charla. Después hacé tu pedido |
+| Codex o Copilot en VS Code | Descargá el archivo y guardalo como `AGENTS.md` en la carpeta que abrís. Lo leen solos |
+| Antigravity | Pegalo como primer mensaje, igual que en ChatGPT |
+
+> ¿Actualizaste n8n o Evolution por tu cuenta? Cambiá la versión en el archivo. En n8n la ves en el menú de
+> ayuda (**?** → **About n8n**). En Evolution, abriendo `https://evo.TUNOMBRE.duckdns.org` en el navegador.
+
+---
+
+## 4. Para qué te sirve en este taller
 
 **Armar un flujo de n8n desde cero.** Describile lo que querés en criollo:
 
@@ -70,7 +97,7 @@ entendés lo que hizo, no te sirve.
 
 ---
 
-## 4. Tres reglas que no se negocian
+## 5. Tres reglas que no se negocian
 
 1. **Nunca le pegues una clave.** Ni la de Evolution, ni la de Odoo, ni la de AWS o Dokploy. Al agente le pasás
    el flujo **siempre** con `PEGAR_ACA` en lugar de la clave. Es lo mismo que dice el video
@@ -84,7 +111,7 @@ Tampoco le pases **datos reales** de clientes, proveedores ni empleados. Usá si
 
 ---
 
-## 5. Qué podés usar y qué no en AE4
+## 6. Qué podés usar y qué no en AE4
 
 - ❌ **No se redactan con IA:** el informe, la Bitácora Individual ni las respuestas del Coloquio
   (punto 27 de la Guía Docente II Parte). Esto incluye pedirle al agente que "mejore" o "corrija" tu texto.
@@ -95,7 +122,7 @@ Tampoco le pases **datos reales** de clientes, proveedores ni empleados. Usá si
 
 ---
 
-## 6. Si algo no anda
+## 7. Si algo no anda
 
 | Lo que pasa | Qué hacer |
 |---|---|

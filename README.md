@@ -18,6 +18,7 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [bot-eco.json](bot-eco.json) | Alumnos | Workflow de n8n listo para importar (el bot que contesta) |
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
 | [guia-agente-de-codigo.md](guia-agente-de-codigo.md) | Alumnos | Cómo usar gratis un agente de IA (Codex, Copilot Student, Antigravity) para armar y arreglar flujos, sin pasarle claves |
+| [agente/AGENTS.md](agente/AGENTS.md) | Alumnos (para su agente) | Contexto para pegarle al agente de IA: versiones (n8n 1.104.0, Evolution v2.3.7), cómo está armado el bot y los errores ya resueltos |
 | [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, guía del coloquio, planilla de notas y revisor de claves |
 
 | [videos/](#videos) | Los dos | Cuatro videos cortos (30 a 36 s) para pasar en el proyector |
