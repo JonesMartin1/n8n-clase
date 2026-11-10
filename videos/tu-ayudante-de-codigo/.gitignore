@@ -1,0 +1,19 @@
+# Secret hygiene
+.env*
+*.pem
+*.key
+*credentials*
+client_secret*.json
+*token*.json
+.mcp.json
+*.mcp.json
+.mcp.local.json
+
+# Film build outputs
+node_modules/
+.frames/
+.tmp/
+exports/*.mp4
+exports/*.wav
+# El de proyector (liviano) se publica; el master y los demás no
+!exports/tu-ayudante-de-codigo-proyector.mp4
