@@ -49,8 +49,8 @@ con un resumen que conviene **pausar** para explicarlo. Están hechos para el pr
 | # | Video | Cuándo pasarlo | Archivo para el proyector |
 |---|---|---|---|
 | 1 | Qué vamos a armar | Al empezar la clase | [que-vamos-a-armar-proyector.mp4](videos/que-vamos-a-armar/exports/que-vamos-a-armar-proyector.mp4) |
-| 2 | Qué es un servidor | Antes de crear el servidor en AWS | _en preparación_ |
-| 3 | La clave no se comparte | Antes de exportar flujos o sacar capturas | _en preparación_ |
+| 2 | Qué es un servidor | Antes de crear el servidor en AWS | [que-es-un-servidor-proyector.mp4](videos/que-es-un-servidor/exports/que-es-un-servidor-proyector.mp4) |
+| 3 | La clave no se comparte | Antes de exportar flujos o sacar capturas | [la-clave-no-se-comparte-proyector.mp4](videos/la-clave-no-se-comparte/exports/la-clave-no-se-comparte-proyector.mp4) |
 | 4 | Cómo se aprueba AE4 | Al presentar el integrador | _en preparación_ |
 
 **Para bajarlos:** entrá al enlace y tocá el botón de descarga (la flechita, *Download raw file*). Se abren con
