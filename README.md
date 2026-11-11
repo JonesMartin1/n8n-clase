@@ -47,27 +47,55 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 ## Videos
 
 Cada video dura entre 30 y 36 segundos, sin voz y con música y sonidos. Tiene un rótulo grande en cada escena y termina
-con un resumen que conviene **pausar** para explicarlo. Están hechos para el proyector (1920×1080).
+con un resumen que conviene **pausar** para explicarlo. **Se miran acá mismo:** tocá ▶ en cada uno (activá el sonido
+con el parlante del reproductor). Para el proyector, usá pantalla completa.
 
-| # | Video | Cuándo pasarlo | Archivo para el proyector |
-|---|---|---|---|
-| 1 | Qué vamos a armar | Al empezar la clase | [que-vamos-a-armar-proyector.mp4](videos/que-vamos-a-armar/exports/que-vamos-a-armar-proyector.mp4) |
-| 2 | Qué es un servidor | Antes de crear el servidor en AWS | [que-es-un-servidor-proyector.mp4](videos/que-es-un-servidor/exports/que-es-un-servidor-proyector.mp4) |
-| 3 | La clave no se comparte | Antes de exportar flujos o sacar capturas | [la-clave-no-se-comparte-proyector.mp4](videos/la-clave-no-se-comparte/exports/la-clave-no-se-comparte-proyector.mp4) |
-| 4 | Cómo se aprueba AE4 | Al presentar el integrador | [como-se-aprueba-ae4-proyector.mp4](videos/como-se-aprueba-ae4/exports/como-se-aprueba-ae4-proyector.mp4) |
-| 5 | Tu ayudante de código | Antes de que armen sus flujos solos (va con [guia-agente-de-codigo.md](guia-agente-de-codigo.md)) | [tu-ayudante-de-codigo-proyector.mp4](videos/tu-ayudante-de-codigo/exports/tu-ayudante-de-codigo-proyector.mp4) |
+### 1 · Qué vamos a armar
 
-**Para bajarlos:** entrá al enlace y tocá el botón de descarga (la flechita, *Download raw file*). Se abren con
-cualquier reproductor de video.
+**Cuándo pasarlo:** Al empezar la clase.
 
-**Otra forma, sin reproductor:** cada video también viene como página web en `videos/<video>/dist/<video>.html`.
-Se baja igual y se abre con doble clic en el navegador. Funciona sin internet.
+https://github.com/user-attachments/assets/ed8f2f9a-c80f-4272-aea9-f06cbbd61702
 
-**Para preparar la clase:** en `videos/<video>/exports/<video>-shots.md` está la lista de escenas, con el segundo en
-que aparece cada una y su rótulo.
+<sub>Para bajarlo: [que-vamos-a-armar-proyector.mp4](videos/que-vamos-a-armar/exports/que-vamos-a-armar-proyector.mp4) → botón de descarga. Lista de escenas: [que-vamos-a-armar-shots.md](videos/que-vamos-a-armar/exports/que-vamos-a-armar-shots.md).</sub>
 
-**Para cambiar un video** (un texto, un color): el código está en `videos/<video>/src/`. Se edita con la skill
-`procedural-film` de Claude Code y se vuelve a generar con `node tools/render.cjs`.
+### 2 · Qué es un servidor
+
+**Cuándo pasarlo:** Antes de crear el servidor en AWS.
+
+https://github.com/user-attachments/assets/bde25416-931f-41fe-9d3b-f3d59221946a
+
+<sub>Para bajarlo: [que-es-un-servidor-proyector.mp4](videos/que-es-un-servidor/exports/que-es-un-servidor-proyector.mp4) → botón de descarga. Lista de escenas: [que-es-un-servidor-shots.md](videos/que-es-un-servidor/exports/que-es-un-servidor-shots.md).</sub>
+
+### 3 · La clave no se comparte
+
+**Cuándo pasarlo:** Antes de exportar flujos o sacar capturas.
+
+https://github.com/user-attachments/assets/61cf6026-910f-4104-8e3d-70317f45dc81
+
+<sub>Para bajarlo: [la-clave-no-se-comparte-proyector.mp4](videos/la-clave-no-se-comparte/exports/la-clave-no-se-comparte-proyector.mp4) → botón de descarga. Lista de escenas: [la-clave-no-se-comparte-shots.md](videos/la-clave-no-se-comparte/exports/la-clave-no-se-comparte-shots.md).</sub>
+
+### 4 · Cómo se aprueba AE4
+
+**Cuándo pasarlo:** Al presentar el integrador.
+
+https://github.com/user-attachments/assets/9ddd4d85-daf8-48ab-94a8-7132d6142f1d
+
+<sub>Para bajarlo: [como-se-aprueba-ae4-proyector.mp4](videos/como-se-aprueba-ae4/exports/como-se-aprueba-ae4-proyector.mp4) → botón de descarga. Lista de escenas: [como-se-aprueba-ae4-shots.md](videos/como-se-aprueba-ae4/exports/como-se-aprueba-ae4-shots.md).</sub>
+
+### 5 · Tu ayudante de código
+
+**Cuándo pasarlo:** Antes de que armen sus flujos solos (va con [guia-agente-de-codigo.md](guia-agente-de-codigo.md)).
+
+https://github.com/user-attachments/assets/d7b106b7-78b4-4e89-8ad0-7a99b2154aa1
+
+<sub>Para bajarlo: [tu-ayudante-de-codigo-proyector.mp4](videos/tu-ayudante-de-codigo/exports/tu-ayudante-de-codigo-proyector.mp4) → botón de descarga. Lista de escenas: [tu-ayudante-de-codigo-shots.md](videos/tu-ayudante-de-codigo/exports/tu-ayudante-de-codigo-shots.md).</sub>
+
+### Para el docente
+
+- **Sin internet en el aula:** bajá los mp4 antes (enlace debajo de cada video). Cada uno también viene como página web
+  en `videos/<video>/dist/<video>.html`, que se abre con doble clic y anda sin conexión.
+- **Para cambiar un video** (un texto, un color): el código está en `videos/<video>/src/`. Se edita con la skill
+  `procedural-film` de Claude Code y se vuelve a generar con `node tools/render.cjs`.
 
 ## La idea en un dibujo
 
