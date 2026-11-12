@@ -124,7 +124,12 @@ Listo: desde acá en adelante todo es con clics. La terminal ya la podés cerrar
 - [ ] En Dokploy: **Projects** → **Create Project** → nombre `bot` → Create.
 - [ ] Entrá al proyecto → **Create Service** → **Template** → buscá **n8n** → elegí el que dice solo **n8n** → **Create**.
 - [ ] Entrá al servicio de n8n → pestaña **Environment**: cambiá `GENERIC_TIMEZONE=Europe/Berlin` por
-      `GENERIC_TIMEZONE=America/Argentina/Buenos_Aires` → **Save**.
+      `GENERIC_TIMEZONE=America/Argentina/Buenos_Aires`.
+- [ ] En esa misma pestaña, buscá la línea `N8N_HOST=` (trae una dirección rara terminada en `traefik.me`) y
+      cambiala por tu dominio, **sin** `https://` y sin barra al final:
+      `N8N_HOST=n8n.TUNOMBRE.duckdns.org` → **Save**.
+      ⚠ No te lo saltees: con esta línea n8n arma las direcciones que le pasás a WhatsApp (paso 8) y a Telegram
+      (paso 12). Si queda la de `traefik.me`, el bot nunca recibe los mensajes.
 - [ ] Pestaña **Domains** → editá el dominio que viene (el lápiz):
   - Host: `n8n.TUNOMBRE.duckdns.org`
   - **HTTPS**: activado
@@ -170,6 +175,7 @@ Listo: desde acá en adelante todo es con clics. La terminal ya la podés cerrar
 - [ ] Guardá (**Ctrl+S**) y **activá / publicá** el workflow (el interruptor o botón arriba a la derecha).
 - [ ] Abrí el nodo **Llega un WhatsApp** → pestaña **Production URL** → **copiá esa dirección**.
       Se ve así: `https://n8n.TUNOMBRE.duckdns.org/webhook/whatsapp`
+      Si en cambio dice algo con `traefik.me`, te faltó cambiar `N8N_HOST` en el paso 5: hacelo, Deploy, y volvé a copiarla.
 
 ### 8.2 Decirle a Evolution que avise a n8n
 
@@ -271,6 +277,88 @@ Usamos Gemini de Google porque tiene uso gratis.
 
 **Bonus:** al **AI Agent** agregale **Memory → Simple Memory** con Session Key `{{ $('Datos').item.json.numero }}`:
 así se acuerda de lo que le dijiste antes, separado por cada persona.
+
+---
+
+## Paso 12 (extra) — El mismo bot, pero por Telegram
+
+Telegram sirve como **segundo canal** o como **plan B** si WhatsApp te da problemas (QR que se vence, número
+bloqueado, celular que se desconecta). Funciona igual que el bot de WhatsApp, con dos ventajas: **no necesitás
+Evolution ni un celular de prueba** (Telegram tiene bots oficiales, gratis) y **no te bloquean el número**.
+
+La diferencia: en WhatsApp el "cartero" que avisa a n8n era Evolution. En Telegram el cartero es el propio Telegram.
+
+Agregá a tu tabla:
+
+```
+Usuario de mi bot:         @__________bot
+Token del bot:             (no lo compartas con nadie: es la clave del bot)
+```
+
+### 12.1 Crear el bot (desde el celular, 2 minutos)
+
+- [ ] En Telegram buscá **@BotFather** (tiene el tilde azul de verificado) → **Iniciar**.
+- [ ] Escribile `/newbot`.
+- [ ] Te pide un **nombre** (el que ve la gente, ej. `Pizzería La Clase`) y después un **usuario**, que tiene que
+      **terminar en `bot`** y no estar usado (ej. `pizzeria_juan_bot`).
+- [ ] Te contesta con un **token**, algo como `123456789:AAH...`. 📝 Copialo a tu tabla.
+      ⚠ El token es la llave del bot: quien lo tiene, maneja tu bot. Si se te escapa (captura, chat, entrega),
+      en @BotFather mandá `/revoke`, elegí tu bot y te da uno nuevo.
+
+### 12.2 Revisar que n8n sepa su propia dirección
+
+Telegram necesita saber a qué dirección avisarle, y n8n se la dice solo, usando la línea `N8N_HOST` que
+corregiste en el **paso 5**. Si la saltaste, Telegram recibe la dirección automática (`...traefik.me`) y no anda.
+
+- [ ] En Dokploy → proyecto `bot` → servicio **n8n** → pestaña **Environment**: la línea tiene que decir
+      `N8N_HOST=n8n.TUNOMBRE.duckdns.org`.
+- [ ] Si dice otra cosa (algo con `traefik.me`), corregila, **Save** y **Deploy**. Esperá el verde.
+
+⚠ **Telegram exige HTTPS con candado.** Si estás con el plan B sin DuckDNS (`traefik.me` por `http`), Telegram no
+va a andar: necesitás el dominio de DuckDNS con candado.
+
+### 12.3 Importar el bot y conectarlo
+
+- [ ] En n8n: **Create Workflow** → menú **⋯** → **Import from File** → elegí `bot-eco-telegram.json`.
+- [ ] Abrí el nodo **Llega un Telegram** → en **Credential** elegí **Create New Credential** → en **Access Token**
+      pegá el token del bot → **Save**. Tiene que quedar en verde.
+- [ ] Abrí el nodo **Contestar por Telegram** y elegí **la misma credencial**.
+- [ ] Guardá (**Ctrl+S**) y prendé el interruptor **Active** arriba a la derecha.
+      En ese momento n8n le avisa a Telegram "mandame los mensajes a mí". No hace falta copiar ninguna dirección.
+
+### 12.4 ¡Probar!
+
+- [ ] En Telegram buscá tu bot por su usuario (`@pizzeria_juan_bot`) → **Iniciar**.
+      Tiene que contestar: `👋 ¡Hola Juan! Escribime algo y te contesto.`
+- [ ] Escribile `hola`. Tiene que contestar: `🤖 Recibí tu mensaje: hola`
+
+Si contesta: **tenés un bot en dos canales**. 🏆 Si no, mirá
+[Problemas frecuentes → Telegram](problemas-frecuentes.md#telegram).
+
+### Trucos que te ahorran una tarde
+
+- **No uses "Test workflow" / "Listen for test event" con el bot ya activo.** Telegram guarda **una sola**
+  dirección por bot: al escuchar en modo prueba, n8n se la cambia por la de prueba y el bot activo deja de recibir.
+  Si te pasó: apagá y prendé de nuevo el interruptor **Active**. Para ver qué llegó, usá la pestaña **Executions**.
+- **Un bot, un flujo.** Si dos flujos usan el mismo bot, gana el último que activaste. Para otro flujo, creá otro bot
+  en @BotFather (es gratis).
+- **El bot nunca escribe primero.** La persona tiene que tocar **Iniciar** antes. Igual que en WhatsApp: solo contesta.
+- **En grupos no contesta a propósito** (el filtro **¿Es un mensaje para contestar?** deja pasar solo charlas
+  privadas). Así nadie lo usa para hacer lío en un grupo.
+- **Telegram no te da el teléfono** de quien escribe. Para identificar a la persona usá `chat_id` (un número fijo
+  por persona), `nombre` y `usuario`, que ya están en el nodo **Datos**.
+
+### Pasarle el paso 10 (Odoo) y el 11 (IA) a Telegram
+
+Es lo mismo que hiciste con WhatsApp, cambiando de dónde salen los datos:
+
+| Lo que en WhatsApp era… | En Telegram es… |
+|---|---|
+| Opportunity Name `{{ 'WhatsApp: ' + $('Datos').item.json.texto }}` | `{{ 'Telegram (' + $('Datos').item.json.nombre + '): ' + $('Datos').item.json.texto }}` |
+| Phone `{{ $('Datos').item.json.numero }}` | No hay teléfono: sacá ese campo (el nombre ya va en el título) |
+| El nodo **Contestar por WhatsApp** (HTTP Request) | El nodo **Contestar por Telegram**: cambiá solo el campo **Text** |
+| Texto con la IA: `$json.output` | En **Text**: `{{ $json.output }}` |
+| Session Key de la memoria: `numero` | `{{ $('Datos').item.json.chat_id }}` |
 
 ---
 

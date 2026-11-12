@@ -54,6 +54,31 @@ El servidor tiene 2 GB de RAM: no me propongas instalar más servicios en él (O
 Configuración del webhook en Evolution (manager → instancia → Events → Webhook): Enabled sí,
 **Webhook by Events no**, **Webhook Base64 no**, evento **solo `MESSAGES_UPSERT`**.
 
+## Mi bot de Telegram (flujo `bot-eco-telegram.json`, opcional)
+
+Es el mismo bot por Telegram, sin Evolution: el bot lo creé en **@BotFather** y el token va en una credencial
+**Telegram API** de n8n (nunca en el JSON).
+
+1. **Llega un Telegram** — nodo *Telegram Trigger* `typeVersion 1.2`, Trigger On `message`. Al prender **Active**,
+   n8n registra solo el webhook en Telegram (no se copia ninguna URL).
+2. **Datos** — Set: `chat_id` = `{{ $json.message.chat.id }}`, `texto` = `{{ $json.message.text || '' }}`,
+   `nombre` = `{{ $json.message.from.first_name || '' }}`, `usuario` = `{{ $json.message.from.username || '' }}`,
+   `tipo_chat` = `{{ $json.message.chat.type }}`.
+3. **¿Es un mensaje para contestar?** — If: `texto` no vacío **y** `tipo_chat` = `private`.
+   No hace falta `es_mio`: Telegram no le manda al bot sus propios mensajes.
+4. **Contestar por Telegram** — nodo *Telegram* `typeVersion 1.2`, Message → Send Message, Chat ID
+   `{{ $('Datos').item.json.chat_id }}`, con **Append n8n Attribution** apagado.
+
+Cosas que ya sé de Telegram en mi instalación:
+- La plantilla de n8n de Dokploy arma `WEBHOOK_URL=https://${N8N_HOST}/`, y `N8N_HOST` arranca con el dominio
+  automático `traefik.me`. Tiene que decir `n8n.MINOMBRE.duckdns.org` (Dokploy → n8n → Environment → Deploy);
+  si no, Telegram recibe una dirección que no llega.
+- Telegram exige HTTPS con certificado válido: con el plan B por http no anda.
+- **Un solo webhook por bot.** "Listen for test event" pisa (y al cortar, borra) el webhook de producción:
+  si pasó, apagar y prender **Active**. Dos flujos con el mismo bot se pisan: el último activado gana.
+- Para diagnosticar: `https://api.telegram.org/bot<TOKEN>/getWebhookInfo` (lo abro yo, no me pidas el token).
+- Telegram no da el teléfono: en Odoo uso el nombre en el título de la oportunidad y `chat_id` como Session Key.
+
 ## Odoo desde n8n
 
 - Credencial **Odoo API** de n8n: Site URL `https://edu-MINOMBRE.odoo.com` (sin barra final), Username = mi mail,
@@ -74,6 +99,7 @@ Configuración del webhook en Evolution (manager → instancia → Events → We
 | Lo que veo | Qué es | Qué hacer |
 |---|---|---|
 | No aparece ninguna ejecución en n8n | Evolution no avisa | Flujo **Active**; webhook con la **Production URL**; `MESSAGES_UPSERT` tildado y "Webhook by Events" apagado |
+| La Production URL dice `traefik.me` | La plantilla de Dokploy deja `N8N_HOST` con el dominio automático (`WEBHOOK_URL=https://${N8N_HOST}/`) | Dokploy → n8n → Environment: `N8N_HOST=n8n.MINOMBRE.duckdns.org` y Deploy (en el plan B por http no se cambia: se pega la URL cambiando `https` por `http`) |
 | La ejecución se corta en el If | No era texto (audio, foto, sticker), vino del mismo número del bot o de un grupo | Probar con un **texto** desde **otro** celular |
 | 401 en Contestar por WhatsApp | Clave de Evolution mal copiada | Revisar `evo_apikey` en **Datos**, sin espacios |
 | 404 en Contestar por WhatsApp | Dirección o instancia mal | `evo_url` sin barra final; la instancia existe en el manager |

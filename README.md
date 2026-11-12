@@ -16,11 +16,11 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 | [guia-docente.md](guia-docente.md) | Profe | Agenda, qué preparar antes, cómo explicar cada parte, plan B |
 | [guia-alumno.md](guia-alumno.md) | Alumnos | Paso a paso para seguir en clase, con casilleros para tildar |
 | [bot-eco.json](bot-eco.json) | Alumnos | Workflow de n8n listo para importar (el bot que contesta) |
+| [bot-eco-telegram.json](bot-eco-telegram.json) | Alumnos | El mismo bot por Telegram, sin Evolution ni celular de prueba (paso 12 de la guía del alumno) |
 | [problemas-frecuentes.md](problemas-frecuentes.md) | Los dos | Lo que se rompe y cómo arreglarlo |
-| [guia-agente-de-codigo.md](guia-agente-de-codigo.md) | Alumnos | Cómo usar gratis un agente de IA (Codex, Copilot Student, Antigravity) para armar y arreglar flujos, sin pasarle claves |
+| [guia-agente-de-codigo.md](guia-agente-de-codigo.md) | Alumnos | Qué agentes y modelos de IA son gratis hoy (revisado al 12/11/2026), cuál usar para qué, cómo no quemar el cupo y cómo pedirles ayuda sin pasarles claves |
 | [agente/AGENTS.md](agente/AGENTS.md) | Alumnos (para su agente) | Contexto para pegarle al agente de IA: versiones (n8n 1.104.0, Evolution v2.3.7), cómo está armado el bot y los errores ya resueltos |
 | [ae4/](ae4/README.md) | Los dos | El integrador final (AE4): consigna y rúbrica v03, checklist de entrega, planilla de notas y revisor de claves |
-
 | [videos/](#videos) | Los dos | Cinco videos cortos (30 a 36 s) para pasar en el proyector |
 
 ## Cómo usar todo esto
@@ -37,6 +37,8 @@ Para chicos con poco conocimiento técnico, pensada como base de su **proyecto i
 3. Los alumnos siguen [guia-alumno.md](guia-alumno.md) tildando casilleros e importan [bot-eco.json](bot-eco.json) en n8n.
    Si se traban, [guia-agente-de-codigo.md](guia-agente-de-codigo.md) explica cómo pedirle ayuda a un agente de IA gratis.
 4. Antes de que exporten flujos o saquen capturas, pasar el video 3, *La clave no se comparte*.
+5. Si a alguien WhatsApp no le anda (QR, número bloqueado) o quiere un segundo canal, el paso 12 de la guía arma el
+   mismo bot por **Telegram** con [bot-eco-telegram.json](bot-eco-telegram.json).
 
 **Para el integrador (AE4)**
 1. Pasar el video 4, *Cómo se aprueba AE4*, y compartir con las parejas el
